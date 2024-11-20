@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/trains/train_page.css' %}">
+{% endblock %}
+
+{% block title %}
+	{{ train.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="train-container">
+        <div>
+            <div class="train-title-container">
+                <h1>{{ train.title }}</h1>
+            </div>
+            <div class="train-fields-container">
+                <p class="train-description">{{ train.description_of_direction }}</p>
+                <a href="{% url 'tickets:buy' screening_id=train.id %}" class="button train-buy-button">Купить билет</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

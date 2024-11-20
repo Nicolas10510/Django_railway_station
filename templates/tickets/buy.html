@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Купить билеты
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/tickets/buy.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form class="tickets-form" method="post">
+            {% csrf_token %}
+            <div class="tickets-row">
+                <p class="tickets-place-number"></p>
+                {% for place in tickets.1 %}
+                        <p class="tickets-place-number">{{ place.place }}</p>
+                {% endfor %}
+            </div>
+            {% for row in tickets.values %}
+                <div class="tickets-row">
+                    <p class="tickets-row-number">{{ row.0.row }}</p>
+                    {% for place in row %}
+                        {% if not place.is_taken %}
+                            <input name="place" class="tickets-place" type="checkbox" value="{{ place.row }} {{ place.place }}">
+                        {% else %}
+                            <input class="tickets-place" type="checkbox" disabled>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="tickets-row">
+                <button class="tickets-complete-button">Купить</button>
+            </div>
+        </form>
+        <div class="tickets-right-side">
+            <div class="train-card">
+                <div class="train-text-container">
+                    <div class="train-card-title-container">
+                    <p class="train-card-title">{{ screening.poezd_id.title }}</p>
+                </div>
+                <p>{{ screening.time|date:"j E - H:i" }} - {{ screening.carriage }} вагон</p>
+                <p><span id="price">{{ screening.price }}</span> рублей</p>
+                </div>
+            </div>
+            <p id="price-output"></p>
+        </div>
+    </div>
+{% endblock %}

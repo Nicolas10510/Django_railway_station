@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Профиль
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/users/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="profile-container">
+        <form action="{% url 'users:profile' %}" method="post" class="profile-form">
+            <h1>Профиль</h1>
+            {% csrf_token %}
+            <div class="profile-form-field">
+                <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
+                {{ form.username }}
+            </div>
+            <div class="profile-form-field">
+                <label for="{{ form.first_name.id_for_label }}">Имя</label>
+                {{ form.first_name }}
+            </div>
+            <div class="profile-form-field">
+                <label for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                {{ form.last_name }}
+            </div>
+            <div class="profile-form-field">
+                <label for="{{ form.email.id_for_label }}">E-mail</label>
+                {{ form.email }}
+            </div>
+            <input class="btn btn-primary" type="submit" value="Сохранить">
+        </form>
+        <div class="profile-tickets-container">
+            <h1>Билеты</h1>
+        {% if tickets %}
+            {% for ticket in tickets %}
+            <div class="profile-ticket">
+                <div>
+                    <img class="profile-ticket-image" src="/media/trains-img/ticket.jpeg" alt="poster">
+                    <div class="profile-ticket-text">
+                        <p class="profile-ticket-title">{{ ticket.screening.poezd_id.title }}</p>
+                        <div class="profile-ticket-info">
+                            <div>
+                               <p>{{ ticket.screening.time|date:"j E"}} </p>
+                                <p>{{ ticket.screening.time|date:"H:i"}}</p>
+                                <p>{{ ticket.screening.poezd_id.age_restriction}}</p>
+                            </div>
+                            <div>
+                                {{ ticket.screening.carriage }} вагон {{ ticket.row }} купе {{ ticket.place }} место
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <a href='{% url "tickets:ticket_page" ticket_id=ticket.id %}' class="button">Открыть</a>
+            </div>
+            {% endfor %}
+        {% else %}
+        <p>Пока пусто</p>
+        {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

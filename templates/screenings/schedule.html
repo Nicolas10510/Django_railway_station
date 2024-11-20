@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Расписание всех сеансов
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/screenings/schedule.css'%}">
+{% endblock %}
+
+{% block content %}
+<!-- В дороботке расписание  -->
+	<h1 class="color-title">Расписание всех сеансов</h1>
+    <div class="schedule-container">
+                
+                    <div class="screening-card">
+                    <div class="screening-card-title-container">
+                        <p class="screening-card-title">{{ screening.time|date:"G:i" }}</p>
+                        <p class="screening-card-title">{{ screening.poezd_id }}</p>
+                    </div>
+                    <div class="screening-card-buttons-container">
+                        <a href="/train/{{ screening.poezd_id }}" class="button">О фильме</a>
+                    </div>
+                    </div>
+            
+
+
+
+
+    {% if time %}
+    <p>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS</p>
+        {% for time in time %}
+            <p>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS</p>
+            <h2>{{ time|date:"j E" }}</h2>
+            {% for screening in screenings %}
+                {% if screening.time.date == time %}
+                    <div class="screening-card">
+                    <div class="screening-card-title-container">
+                        <p class="screening-card-title">{{ screening.time|date:"G:i" }}</p>
+                        <p class="screening-card-title">{{ screening.poezd_id }}</p>
+                    </div>
+                    <div class="screening-card-buttons-container">
+                        <a href="/trains/{{ screening.poezd_id_id }}" class="button">О фильме</a>
+                        <a href="{% url 'tickets:buy' screening_id=screening.id %}" class="button">Купить билет</a>
+                    </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        <p>Сеансов нет</p>
+    {% endif %}
+    </div>
+
+
+{% endblock %}

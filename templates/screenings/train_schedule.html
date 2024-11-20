@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/screenings/train_schedule.css' %}">
+{% endblock %}
+
+{% block title %}
+	Расписание поездов {{ train.title }} 
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="schedule-container">
+        <h1>Расписание сеансов</h1>
+        <a href="{% url 'tickets:buy' screening_id=1 %}" class="button">Купить </a>
+        {% if time %}
+            {% for time in time %}
+                <h2>{{ time|date:"j E" }}</h2>
+                <div class="schedule-buttons-container">
+                {% for screening in screenings %}
+                    {% if screening.time.date == time %}
+                        <a href="{% url 'tickets:buy' screening_id=screening.id %}" class="button">{{ screening.time|date:"G:i" }}</a>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p><b>Сеансов нет</b></p>
+        {% endif %}
+        </div>
+        <div class="train-card">
+            <div class="train-text-container">
+                <div class="train-card-title-container">
+                    <p class="train-card-title">{{ train.title }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

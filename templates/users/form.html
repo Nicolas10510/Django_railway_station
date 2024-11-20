@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - Station</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/users/form.css' %}">
+    {% block style %}{% endblock %}
+</head>
+<body>
+    <div class="base-container">
+        <div class="base-logo-container">
+                <p class="base-title">Ж/Д вокзал г.Тула</p>
+            </div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

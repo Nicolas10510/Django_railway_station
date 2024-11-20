@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Поезда
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/trains/active_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="color-title">Актуальные направления</h1>
+    <div class="train-container">
+    {% if next_trains %}
+        {% for train in next_trains %}
+            <p class="train-title">{{ train.title }}</p>
+            <a href="{% url 'trains:train_page' train_id=train.id %}" class="button">Подробнее</a>
+            <a href="{% url 'tickets:buy' screening_id=train.id %}" class="button movie-buy-button">Купить билет</a>
+        {% endfor %}
+    {% else %}    
+        <p>Нет актуальных направлений</p>
+    {% endif %} 
+    </div>
+
+    
+
+{% endblock %}

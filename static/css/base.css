@@ -1,0 +1,100 @@
+.base-header{
+    height: fit-content;
+    padding: 3vh 7vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.base-active-link{
+    color: rgb(15, 146, 15);
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+.base-header-link{
+    color: white;
+    font-size: 2vh;
+}
+
+.base-nav{
+    display: flex;
+    list-style-type: none;
+    gap: 2vw;
+}
+
+.base-logo-container{
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.base-logo{
+    width: 4vw;
+    color: rgb(15, 146, 15);
+}
+
+.base-title{
+    font-size: 2vw;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.base-header-left{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    flex-grow: 5;
+}
+
+.base-user-container{
+    display: flex;
+    gap: 2vw;
+}
+
+.base-content-container{
+    min-height: 71vh;
+}
+
+.base-footer{
+    padding: 3vh 5vw;
+    background-color: black;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.base-footer-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.base-footer-link{
+    color: white;
+    font-size: 2vh;
+
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+}
+
+.base-footer-nav-container{
+    display: flex;
+    gap: 40vw;
+}
+
+.base-nav-icon{
+    width: 1vw;
+}
+
+.main-fon{
+    background-image: url("/media/trains-img/rels5.jpg");
+    background-size: cover;
+}
+
+

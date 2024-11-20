@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - Station</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block style %}{% endblock %}
+</head>
+<body>
+    <header class="base-header">
+        <div class="base-header-left">
+            <div class="base-logo-container">
+            <p class="base-title">Ж/Д вокзал г.Тула</p>
+        </div>
+        <nav>
+            <ul class="base-nav">
+                <li><a href="{% url 'trains:index' %}" 
+                   {% if request.path == '/' %}
+                    class="base-active-link"
+                   {% else %}
+                    class="base-header-link"
+                   {% endif %}
+                >Поезда</a></li>
+                <!-- <li><a href="{% url 'screenings:schedule' %}" 
+                   {% if request.path == '/screenings/schedule/' %}
+                    class="base-active-link"
+                   {% else %}
+                    class="base-header-link"
+                   {% endif %}
+                >Расписание</a></li> -->
+            </ul>
+        </nav>
+        </div>
+        <div class="base-user-container">
+            {% if request.user.is_authenticated %}
+            	<a href="{% url 'users:profile' %}" 
+                   {% if request.path == '/user/profile/' %}
+                    class="base-active-link"
+                   {% else %}
+                    class="base-header-link"
+                   {% endif %}
+                >Профиль</a>
+                <a class="base-header-link" href="{% url 'users:logout' %}">Выйти</a>
+            {% else %}
+                <a class="base-header-link" href="{% url 'users:login' %}">Войти</a>
+            {% endif %}
+        </div>
+    </header>
+    <main class="main-fon">
+    <div class="base-content-container">
+        {% block content %}{% endblock %}
+    </div>
+
+    </main>
+    <footer class="base-footer">
+        <nav>
+            <ul class="base-footer-nav-container">
+                <li><a href="https://www.rzd.ru/" target="_blank"
+                   {% if request.path == '/' %}
+                    class="base-active-link"
+                   {% else %}
+                    class="base-header-link"
+                   {% endif %}
+                >Официальный сайт Российских железных дорог: https://www.rzd.ru/</a></li>
+                <li><p 
+                   {% if request.path == '/screenings/schedule/' %}
+                    class="base-active-link"
+                   {% else %}
+                    class="base-header-link"
+                   {% endif %}
+                >Телефон горячей линии: 8(4872)20-25-97</p></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

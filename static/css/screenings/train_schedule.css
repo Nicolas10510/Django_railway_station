@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    gap: 5vw;
+}
+
+.train-card{
+    display: flex;
+    gap: 2vw;
+    margin-bottom: 2vh;
+}
+
+.train-card-title-container{
+    display: flex;
+    gap: 1vw;
+    height: fit-content;
+    align-items: center;
+}
+
+.train-text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.train-card-title{
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+.schedule-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.schedule-buttons-container{
+    display: flex;
+    gap: 1vw;
+    flex-wrap: wrap;
+}

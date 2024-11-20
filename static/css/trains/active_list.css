@@ -1,0 +1,18 @@
+.train-container{
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    margin: 3vh 0;
+}
+
+.train-title{
+    text-align:center;
+    font-weight: bold;
+    color: aliceblue;
+    font-size: 23px;
+}
+
+.color-title{
+    color: aliceblue;
+}

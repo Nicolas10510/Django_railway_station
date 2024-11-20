@@ -1,0 +1,30 @@
+.train-container{
+    display: flex;
+    gap: 2vw;
+    color: rgb(252, 252, 252);
+}
+
+.train-title-container{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+.train-fields-container{
+    display: flex;
+    padding: 3vh 0;
+
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.train-description{
+    text-align: justify;
+    font-size: 1.2vw;
+}
+
+.train-buy-button{
+    align-self: flex-start;
+    font-size: 1vw;
+}
+

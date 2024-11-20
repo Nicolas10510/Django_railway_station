@@ -1,0 +1,34 @@
+{% extends 'users/form.html' %}
+{% load static %}
+
+{% block title %}
+	Билет на поезд "{{ ticket.screening.film_id.title }}"
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/tickets/ticket_page.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="ticket-data-container">
+            <div class="ticket-place-container">
+                <div class="ticket-title-container">
+                    <h1>{{ ticket.screening.poezd_id.title }}</h1>
+                </div>
+                <div>
+                    <p>{{ ticket.screening.time|date:"j E" }} - {{ ticket.screening.time|date:"H:i" }}</p>
+                    <p>{{ ticket.screening.carriage }} вагон, {{ ticket.row }} купе, {{ ticket.place }} место</p>
+                </div>
+            </div>
+            <div>
+                <div class="ticket-number-container">
+                    <p class="ticket-number-label">Номер билета: </p>
+                    <p class="ticket-number">{{ ticket.id }}</p>
+                </div>
+                <p class="disclaimer">Хорошего пути!</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

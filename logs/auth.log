@@ -1,0 +1,34 @@
+INFO:root:[2024.11.19 - 18:52:22] LOGOUT User1 ID 2
+ERROR:django.request:Internal Server Error: /user/register
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\DJ_Station\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\Desktop\DJ_Station\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\Desktop\DJ_Station\users\views.py", line 100, in register
+    return register_new_user(request)
+  File "C:\Users\user\Desktop\DJ_Station\users\services\register_new_user.py", line 14, in register_new_user
+    log_auth(User.objects.get(username=form.username), AuthLoggingAction.REG)
+                                       ^^^^^^^^^^^^^
+AttributeError: 'UserRegistrationForm' object has no attribute 'username'
+INFO:django.utils.autoreload:C:\Users\user\Desktop\DJ_Station\users\forms.py changed, reloading.
+INFO:root:[2024.11.19 - 19:40:49] LOGIN User7 ID 7
+WARNING:django.request:Not Found: /train/
+WARNING:django.request:Not Found: /train
+WARNING:django.request:Not Found: /train/<int:train_id>/
+WARNING:django.request:Not Found: /schedule/
+WARNING:django.request:Not Found: /schedule/<int:train>/
+INFO:root:[2024.11.19 - 19:53:48] LOGOUT User7 ID 7
+INFO:root:[2024.11.19 - 23:53:28] LOGOUT AdMini ID 8
+INFO:root:[2024.11.19 - 23:54:40] LOGIN AdMini ID 8
+INFO:root:[2024.11.19 - 23:54:46] LOGOUT AdMini ID 8
+INFO:root:[2024.11.19 - 23:58:32] LOGIN AdMini ID 8
+INFO:django.utils.autoreload:C:\Users\user\Desktop\DJ_Station\users\urls.py changed, reloading.
+INFO:root:[2024.11.20 - 18:05:14] LOGOUT AdMini ID 8
+INFO:root:[2024.11.20 - 18:05:34] LOGIN AdMini ID 8
+INFO:django.utils.autoreload:C:\Users\user\Desktop\DJ_Station\trains\models.py changed, reloading.
+INFO:root:[2024.11.20 - 18:24:38] LOGOUT AdMini ID 8
+INFO:root:[2024.11.20 - 18:31:50] LOGIN MC_Doni_71 ID 10
+INFO:root:[2024.11.20 - 18:41:48] LOGOUT MC_Doni_71 ID 10
+INFO:root:[2024.11.20 - 18:42:59] LOGIN MC_Doni_71 ID 10
+INFO:root:[2024.11.20 - 19:42:14] LOGOUT MC_Doni_71 ID 10
